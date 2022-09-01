@@ -76,6 +76,8 @@ sslMap = (hostLi)=>
     if TODAY[..9] > endDate
       await CAS.deleteUserCertificate(certId:id)
     else if name.endsWith MONTH
+      if common.startsWith '*.'
+        common = common[2..]
       exist.add common
       await bindLi common, name
 

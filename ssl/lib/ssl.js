@@ -100,6 +100,9 @@ sslMap = async(hostLi) => {
         certId: id
       });
     } else if (name.endsWith(MONTH)) {
+      if (common.startsWith('*.')) {
+        common = common.slice(2);
+      }
       exist.add(common);
       await bindLi(common, name);
     }

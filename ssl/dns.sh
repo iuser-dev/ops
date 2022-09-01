@@ -1,0 +1,1 @@
+../../key/ssl/dns.sh

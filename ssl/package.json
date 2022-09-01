@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@alicloud/cas20180713": "^1.0.0",
+    "@alicloud/cdn20180510": "^1.0.13",
+    "@alicloud/openapi-client": "^0.4.1",
+    "@alicloud/tea-util": "^1.4.4",
+    "@iuser/read": "^0.0.5",
+    "coffee_plus": "^0.0.39"
+  }
+}

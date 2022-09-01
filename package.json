@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@iuser/node-loader": "^0.0.20",
+    "@rmw/fsline": "^0.0.1",
+    "@rmw/thisdir": "^0.0.2",
+    "coffeescript": "^2.7.0",
+    "concurrently": "^7.3.0",
+    "puppeteer": "^16.2.0"
+  },
+  "dependencies": {
+    "@alicloud/openapi-client": "^0.4.1",
+    "zx": "^7.0.8"
+  }
+}

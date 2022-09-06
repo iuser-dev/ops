@@ -8,4 +8,4 @@
 # +--- 分钟 (0 - 59)
 
 1 1 * * * timeout 1h /root/user/ops/backup/cron.sh > /var/log/cron/cron.log 2>&1
-2 2 */2 * * timeout 1h /root/user/freeom_renew/run.sh > /var/log/cron/freeom_renew.log 2>&1
+2 2 */3 * * timeout 1h /root/user/freeom_renew/run.sh > /var/log/cron/freeom_renew.log 2>&1

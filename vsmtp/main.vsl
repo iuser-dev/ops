@@ -1,0 +1,7 @@
+import "objects" as doe;
+
+#{
+  authenticate: [
+    rule "auth /etc/shadow" || { authenticate() }
+  ],
+}

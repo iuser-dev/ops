@@ -1,0 +1,26 @@
+version_requirement = ">=1.3.0"
+
+[server]
+domain = "user.tax"
+
+[server.interfaces]
+addr = ["62.171.170.189:25"]
+addr_submission = ["62.171.170.189:587"]
+addr_submissions = ["62.171.170.189:465"]
+
+[server.tls]
+security_level = "May"
+preempt_cipherlist = false
+handshake_timeout = "4000ms"
+protocol_version = ["TLSv1.2", "TLSv1.3"]
+certificate = "/mnt/www/.acme.sh/user.tax/fullchain.cer"
+private_key = "/mnt/www/.acme.sh/user.tax/user.tax.key"
+
+[server.smtp.auth]
+must_be_authenticated = false
+enable_dangerous_mechanism_in_clair = false
+
+[app.vsl]
+filepath = "/etc/vsmtp/main.vsl"
+
+

@@ -17,7 +17,7 @@ certificate = "/mnt/www/.acme.sh/user.tax/fullchain.cer"
 private_key = "/mnt/www/.acme.sh/user.tax/user.tax.key"
 
 [server.smtp.auth]
-must_be_authenticated = false
+must_be_authenticated = true
 enable_dangerous_mechanism_in_clair = false
 
 [app.vsl]

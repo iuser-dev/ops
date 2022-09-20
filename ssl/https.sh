@@ -39,7 +39,9 @@ echo "更新 $HOST"
 $acme --force --renew -d $HOST -d *.$HOST --log --reloadcmd "$reload"
 else
 echo "创建 $HOST"
-$acme --days 30 --issue --dns dns_$DNS -d $HOST -d *.$HOST --force --log --reloadcmd "$reload"
+$acme \
+--server https://acme.hi.cn/directory \
+--days 170 --issue --dns dns_$DNS -d $HOST -d *.$HOST --force --log --reloadcmd "$reload"
 fi
 
 sudo service nginx restart || true

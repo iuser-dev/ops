@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-DIR=$(dirname $(realpath "$0"))
+EXE=$(realpath "$0")
+DIR=$(dirname $EXE)
 cd $DIR
 set -ex
 
@@ -11,7 +12,7 @@ sudo chown $NGINX_USER:$NGINX_USER $NGINX_HOME
 systemctl stop nginx
 usermod -d $NGINX_HOME -u $(id -u $NGINX_USER) $NGINX_USER
 systemctl start nginx || true
-exec sudo -u $NGINX_USER "$0" "$@"
+exec sudo -u $NGINX_USER "$EXE" "$@"
 fi
 
 cd $NGINX_HOME

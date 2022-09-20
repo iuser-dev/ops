@@ -24,7 +24,7 @@ echo $HOST
 acme=$HOME/.acme.sh/acme.sh
 
 if [ ! -x "$acme" ]; then
-curl https://get.acme.sh | sh -s email=$MAIL
+curl https://get.acme.sh | sh -s email=${MAIL-"i@$HOST"}
 $acme --upgrade --auto-upgrade
 fi
 
@@ -35,7 +35,7 @@ echo "更新 $HOST"
 $acme --force --renew -d $HOST -d *.$HOST --log --reloadcmd "$reload"
 else
 echo "创建 $HOST"
-$acme --server https://acme.hi.cn/directory --days 150 --issue --dns dns_$DNS -d $HOST -d *.$HOST --force --log --reloadcmd "$reload"
+$acme --server https://acme-v02.api.letsencrypt.org/directory --days 30 --issue --dns dns_$DNS -d $HOST -d *.$HOST --force --log --reloadcmd "$reload"
 fi
 
 sudo service nginx restart || true

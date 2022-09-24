@@ -25,7 +25,7 @@ conf "# repl-backlog-size " "repl-backlog-size 200m"
 conf 'logfile ' "logfile /log/redis.log"
 conf 'dir ' 'dir /data'
 conf '# rename-command CONFIG ""' 'rename-command FLUSHALL ""\nrename-command FLUSHDB  ""\nrename-command CONFIG   ""\nrename-command KEYS  ""\n'
-
+conf "protected-mode yes" "protected-mode no"
 # sysctl_conf=/etc/sysctl.conf
 
 # if ! grep -q "vm.overcommit_memory" "$sysctl_conf"; then

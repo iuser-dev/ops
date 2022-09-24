@@ -6,7 +6,7 @@ networks:
 
 services:
   mysql:
-    image: "mariadb:10.9"
+    image: mariadb:10.9
     container_name: mysql
     hostname: mysql
     restart: always
@@ -24,7 +24,7 @@ services:
       - nightingale
 
   redis:
-    image: "redis:7"
+    image: redis:7
     container_name: redis
     hostname: redis
     restart: always
@@ -32,6 +32,11 @@ services:
       - "6379:6379"
     environment:
       TZ: Asia/Shanghai
+    command: redis-server /etc/redis/redis.conf
+    volumes:
+      - ./data/redis:/data
+      - ./redis.conf:/etc/redis/redis.conf
+      - /var/log/docker/api.user.tax/redis:/log
     networks:
       - nightingale
   
@@ -127,7 +132,7 @@ services:
       sh -c "/wait && /app/n9e server"
 
   categraf:
-    image: "flashcatcloud/categraf:latest"
+    image: flashcatcloud/categraf:latest
     container_name: "categraf"
     hostname: "categraf01"
     restart: always

@@ -15,7 +15,6 @@ services:
     environment:
       TZ: Asia/Shanghai
       MARIADB_ROOT_PASSWORD: 1234
-      MARIADB_PASSWORD: 1234
     volumes:
       - ./data/mysql:/var/lib/mysql/
       - ./initsql:/docker-entrypoint-initdb.d/

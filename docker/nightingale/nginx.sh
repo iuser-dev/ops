@@ -5,7 +5,11 @@ cd $DIR
 set -ex
 
 cd /etc/nginx/site
-ln -s $DIR/n9.usr.tax.conf .
+file=n9.usr.tax.conf
+if [ ! -s "$file" ]; then
+ln -s $DIR/$file .
+fi
+
 systemctl daemon-reload
 systemctl reload nginx
 

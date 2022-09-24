@@ -15,9 +15,11 @@ services:
     environment:
       TZ: Asia/Shanghai
       MARIADB_ROOT_PASSWORD: 1234
+      MARIADB_PASSWORD: 1234
     volumes:
       - ./data/mysql:/var/lib/mysql/
-      - ./initsql:/docker-entrypoint-initdb.d/
+    # 第一次运行挂载，之后注释掉
+    #  - ./initsql:/docker-entrypoint-initdb.d/
     networks:
       - nightingale
 
@@ -34,10 +36,16 @@ services:
       - nightingale
   
   victoriametrics:
+    environment:
+      TZ: Asia/Shanghai
+    hostname: victoriametrics
+    container_name: victoriametrics
     image: victoriametrics/victoria-metrics
     volumes:
       - ./data/victoriametrics:/victoria-metrics-data
     command: -retentionPeriod=3y
+    networks:
+      - nightingale
 
   ibex:
     image: ulric2019/ibex:0.3

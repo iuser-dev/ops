@@ -22,8 +22,16 @@ services:
     #  - ./initsql:/docker-entrypoint-initdb.d/
     networks:
       - nightingale
-
+  redis-log:
+    image: redis:7
+    restart: 'no'
+    volumes:
+      - /var/log/docker/api.user.tax/redis:/log
+      - ./data/redis:/data
+    entrypoint: chown -R redis:redis /log /data
   redis:
+    depends_on:
+      - redis-log
     image: redis:7
     container_name: redis
     hostname: redis
@@ -36,10 +44,9 @@ services:
     volumes:
       - ./data/redis:/data
       - ./redis.conf:/etc/redis/redis.conf
-      - /var/log/docker/api.user.tax/redis:/log
+      - /var/log/docker/nightingale/redis:/log
     networks:
       - nightingale
-  
   victoriametrics:
     environment:
       TZ: Asia/Shanghai

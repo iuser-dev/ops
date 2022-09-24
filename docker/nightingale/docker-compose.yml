@@ -26,7 +26,7 @@ services:
     image: redis:7
     restart: 'no'
     volumes:
-      - /var/log/docker/api.user.tax/redis:/log
+      - /var/log/docker/nightingale/redis:/log
       - ./data/redis:/data
     entrypoint: chown -R redis:redis /log /data
   redis:

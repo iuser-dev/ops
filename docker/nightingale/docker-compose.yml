@@ -56,7 +56,6 @@ services:
     command: -retentionPeriod=3y
     networks:
       - nightingale
-
   ibex:
     image: ulric2019/ibex:0.3
     container_name: ibex

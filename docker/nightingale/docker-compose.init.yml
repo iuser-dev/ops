@@ -133,28 +133,28 @@ services:
     command: >
       sh -c "/wait && /app/n9e server"
 
-  categraf:
-    image: flashcatcloud/categraf:latest
-    container_name: "categraf"
-    hostname: "categraf01"
-    restart: always
-    environment:
-      TZ: Asia/Shanghai
-      HOST_PROC: /hostfs/proc
-      HOST_SYS: /hostfs/sys
-      HOST_MOUNT_PREFIX: /hostfs
-    volumes:
-      - ./categraf/conf:/etc/categraf/conf
-      - /:/hostfs
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - "9100:9100/tcp"
-    networks:
-      - nightingale
-    depends_on:
-      - nserver
-    links:
-      - nserver:nserver
+#  categraf:
+#    image: flashcatcloud/categraf:latest
+#    container_name: "categraf"
+#    hostname: "categraf01"
+#    restart: always
+#    environment:
+#      TZ: Asia/Shanghai
+#      HOST_PROC: /hostfs/proc
+#      HOST_SYS: /hostfs/sys
+#      HOST_MOUNT_PREFIX: /hostfs
+#    volumes:
+#      - ./categraf/conf:/etc/categraf/conf
+#      - /:/hostfs
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    ports:
+#      - "9100:9100/tcp"
+#    networks:
+#      - nightingale
+#    depends_on:
+#      - nserver
+#    links:
+#      - nserver:nserver
 
   agentd:
     image: ulric2019/ibex:0.3

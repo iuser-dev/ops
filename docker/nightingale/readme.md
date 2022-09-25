@@ -7,6 +7,12 @@ apt-get install -y apache2-utils
 htpasswd -c /etc/nginx/passwd n9
 ```
 
+到 https://console.neon.tech/ 创建数据库，然后
+
+```
+psql postgres://usrtax:$PGPASSWORD@gentle-bar-717003.cloud.neon.tech:5432/main < initsql_for_postgres/a-n9e-for-Postgres.sql
+```
+
 导入报警规则如下
 
 ```json

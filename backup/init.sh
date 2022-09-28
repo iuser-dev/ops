@@ -15,3 +15,7 @@ git clone --depth=1 --recursive git@github.com:user-tax-key/key.git
 cd key
 
 ./init.sh
+
+cd smtp
+
+./init.sh

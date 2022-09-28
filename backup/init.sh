@@ -8,9 +8,13 @@ set -ex
 
 cd ../..
 
+if [ ! -d "freeom_renew" ]; then
 git clone --depth=1 git@github.com:user-tax-dev/freeom_renew.git
+fi
 
+if [ ! -d "key" ]; then
 git clone --depth=1 --recursive git@github.com:user-tax-key/key.git
+fi
 
 cd key
 

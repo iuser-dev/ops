@@ -29,7 +29,9 @@ MAIL=i@$HOST
 fi
 
 if [ ! -x "$acme" ]; then
-curl https://get.acme.sh | sh -s email=$MAIL
+export ACME_GIT=usrtax/acme.sh
+curl https://ghproxy.com/https://raw.githubusercontent.com/usrtax/get.acme.sh/master/index.html | sh -s email=$MAIL
+#curl https://get.acme.sh | sh -s email=$MAIL
 $acme --upgrade --auto-upgrade
 fi
 

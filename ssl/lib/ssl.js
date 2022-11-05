@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --es-module-specifier-resolution=node --trace-uncaught --expose-gc --unhandled-rejections=strict
+#!/usr/bin/env -S node --loader=@u6x/jsext --trace-uncaught --expose-gc --unhandled-rejections=strict
 var CAS, CDN, MONTH, TODAY, bind, cdnLs, iter, sslLs, sslMap, upload;
 
 import _CAS from '@alicloud/cas20180713';

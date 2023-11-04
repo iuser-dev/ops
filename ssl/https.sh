@@ -49,7 +49,8 @@ $acme \
 --dns dns_$DNS \
 -d $HOST -d *.$HOST \
 --force \
---reloadcmd "$reload"
+--reloadcmd "$reload" \
+-m "zsp@xvc.com"
 fi
 
 sudo service nginx restart || true

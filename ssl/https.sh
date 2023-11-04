@@ -43,14 +43,12 @@ $acme --force --renew -d $HOST -d *.$HOST --log --reloadcmd "$reload"
 else
 echo "创建 $HOST"
 $acme \
---days 30 \
+-d $HOST -d *.$HOST \
 --log \
 --issue \
 --dns dns_$DNS \
--d $HOST -d *.$HOST \
 --force \
---reloadcmd "$reload" \
--m "zsp@xvc.com"
+--reloadcmd "$reload"
 fi
 
 sudo service nginx restart || true

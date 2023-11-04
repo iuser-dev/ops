@@ -29,9 +29,9 @@ MAIL=i@$HOST
 fi
 
 if [ ! -x "$acme" ]; then
-export ACME_GIT=usrtax/acme.sh
-curl https://ghproxy.com/https://raw.githubusercontent.com/usrtax/get.acme.sh/master/index.html | sh -s email=$MAIL
-#curl https://get.acme.sh | sh -s email=$MAIL
+# export ACME_GIT=usrtax/acme.sh
+# curl https://ghproxy.com/https://raw.githubusercontent.com/usrtax/get.acme.sh/master/index.html | sh -s email=$MAIL
+curl https://get.acme.sh | sh -s email=$MAIL
 $acme --upgrade --auto-upgrade
 fi
 
@@ -43,8 +43,7 @@ $acme --force --renew -d $HOST -d *.$HOST --log --reloadcmd "$reload"
 else
 echo "创建 $HOST"
 $acme \
---server https://acme.hi.cn/directory \
---days 170 --issue --dns dns_$DNS -d $HOST -d *.$HOST --force --log --reloadcmd "$reload"
+--days 30 --issue --dns dns_$DNS -d $HOST -d *.$HOST --force --log --reloadcmd "$reload"
 fi
 
 sudo service nginx restart || true

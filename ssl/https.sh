@@ -44,7 +44,6 @@ else
 echo "创建 $HOST"
 $acme \
 --days 30 \
---debug \
 --log \
 --issue \
 --dns dns_$DNS \

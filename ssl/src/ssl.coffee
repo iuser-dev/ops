@@ -98,6 +98,7 @@ do =>
       li.push domainName
   console.log li
   await sslMap (host)=>
+    host = host.replace('_ecc','')
     console.log host
     r = []
     for i from li

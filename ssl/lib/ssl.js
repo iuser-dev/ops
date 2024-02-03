@@ -133,6 +133,7 @@ sslMap = async(hostLi) => {
   console.log(li);
   await sslMap((host) => {
     var i, r;
+    host = host.replace('_ecc', '');
     console.log(host);
     r = [];
     for (i of li) {

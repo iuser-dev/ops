@@ -130,8 +130,10 @@ sslMap = async(hostLi) => {
       li.push(domainName);
     }
   }
+  console.log(li);
   await sslMap((host) => {
     var i, r;
+    console.log(host);
     r = [];
     for (i of li) {
       if (host === i || i.endsWith('.' + host)) {

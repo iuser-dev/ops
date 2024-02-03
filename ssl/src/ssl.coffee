@@ -96,7 +96,9 @@ do =>
   for await {domainStatus,domainName} from cdnLs()
     if domainStatus == 'online'
       li.push domainName
+  console.log li
   await sslMap (host)=>
+    console.log host
     r = []
     for i from li
       if host == i or i.endsWith('.'+host)

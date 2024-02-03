@@ -26,7 +26,7 @@ iter = (exist)->
           yield {
             name
             cert:read fullchain
-            key:read join dir,name+'.key'
+            key:read join dir,name.replace('_ecc','')+'.key'
           }
   return
 
